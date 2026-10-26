@@ -1,0 +1,8 @@
+vllm:kv_cache_usage_perc{engine="0",model_name="nvidia/NVIDIA-Nemotron-Nano-9B-v2-FP8"} 0.0
+vllm:num_preemptions_total{engine="0",model_name="nvidia/NVIDIA-Nemotron-Nano-9B-v2-FP8"} 0.0
+vllm:num_preemptions_created{engine="0",model_name="nvidia/NVIDIA-Nemotron-Nano-9B-v2-FP8"} 1.7930186528830473e+09
+vllm:prompt_tokens_total{engine="0",model_name="nvidia/NVIDIA-Nemotron-Nano-9B-v2-FP8"} 134144.0
+vllm:generation_tokens_total{engine="0",model_name="nvidia/NVIDIA-Nemotron-Nano-9B-v2-FP8"} 33536.0
+vllm:time_to_first_token_seconds_sum{engine="0",model_name="nvidia/NVIDIA-Nemotron-Nano-9B-v2-FP8"} 649.5869083404541
+vllm:inter_token_latency_seconds_sum{engine="0",model_name="nvidia/NVIDIA-Nemotron-Nano-9B-v2-FP8"} 3835.7567032769475
+vllm:e2e_request_latency_seconds_count{engine="0",model_name="nvidia/NVIDIA-Nemotron-Nano-9B-v2-FP8"} 262.0

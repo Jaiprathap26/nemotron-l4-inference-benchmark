@@ -1,0 +1,25 @@
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                  _C::cutlass_scaled_mm         5.31%      81.314ms         9.87%     151.083ms      45.397us        1.159s        69.30%        1.159s     348.351us          3328  
+void cutlass::Kernel2<enable_sm89_to_sm90<cutlass::g...         0.00%       0.000us         0.00%       0.000us       0.000us     466.434ms        27.88%     466.434ms     289.351us          1612  
+void cutlass::Kernel2<enable_sm89_to_sm90<cutlass::g...         0.00%       0.000us         0.00%       0.000us       0.000us     359.563ms        21.50%     359.563ms     429.586us           837  
+void cutlass::Kernel2<enable_sm89_to_sm90<cutlass::g...         0.00%       0.000us         0.00%       0.000us       0.000us     286.441ms        17.12%     286.441ms     369.602us           775  
+                                     vllm::mamba_mixer2        33.25%     508.736ms        43.50%     665.545ms     770.306us     229.664ms        13.73%     247.111ms     286.009us           864  
+                                               aten::mm         1.10%      16.783ms         1.36%      20.845ms      72.377us     213.917ms        12.79%     213.917ms     742.767us           288  
+                          _selective_scan_update_kernel         0.00%       0.000us         0.00%       0.000us       0.000us     208.408ms        12.46%     208.408ms     248.994us           837  
+void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_...         0.00%       0.000us         0.00%       0.000us       0.000us     172.710ms        10.32%     172.710ms       1.107ms           156  
+void cutlass::Kernel2<enable_sm89_to_sm90<cutlass::g...         0.00%       0.000us         0.00%       0.000us       0.000us      46.872ms         2.80%      46.872ms     450.694us           104  
+void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_...         0.00%       0.000us         0.00%       0.000us       0.000us      39.029ms         2.33%      39.029ms     314.751us           124  
+                                            aten::copy_         2.12%      32.424ms         4.20%      64.197ms      23.370us      10.134ms         0.61%      10.136ms       3.690us          2747  
+                                              aten::mul         2.15%      32.940ms         3.46%      52.952ms      20.429us       9.705ms         0.58%       9.705ms       3.744us          2592  
+                                            aten::index         0.26%       3.972ms         0.52%       7.919ms      64.384us       8.926ms         0.53%       8.982ms      73.026us           123  
+                              _state_passing_fwd_kernel         0.00%       0.000us         0.00%       0.000us       0.000us       8.884ms         0.53%       8.884ms     329.024us            27  
+                            _C::static_scaled_fp8_quant         2.51%      38.442ms         5.26%      80.520ms      24.195us       8.821ms         0.53%       8.823ms       2.651us          3328  
+void vllm::scaled_fp8_quant_kernel_strided_group_sha...         0.00%       0.000us         0.00%       0.000us       0.000us       8.821ms         0.53%       8.821ms       2.651us          3328  
+void at::native::vectorized_gather_kernel<16, long>(...         0.00%       0.000us         0.00%       0.000us       0.000us       8.702ms         0.52%       8.702ms     145.036us            60  
+                                 aten::_index_put_impl_         0.04%     573.579us         0.12%       1.788ms      66.223us       8.174ms         0.49%       8.252ms     305.644us            27  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 1.530s
+Self CUDA time total: 1.673s
+

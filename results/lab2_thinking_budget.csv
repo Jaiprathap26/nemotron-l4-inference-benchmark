@@ -1,0 +1,3 @@
+Mode,System_Prompt,Output_Tokens,TTFT_ms,ITL_ms_per_tok,Decode_Tok_s,HBM_BW_Used_GB_s,Total_Latency_s
+Reasoning OFF,/no_think,350,151.86,66.54,15.03,267.5 / 300.0 (89.2%),23.38
+Reasoning ON,detailed thinking on,350,94.0,66.68,15.0,267.0 / 300.0 (89.0%),23.36
