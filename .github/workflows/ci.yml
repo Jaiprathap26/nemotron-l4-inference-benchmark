@@ -1,0 +1,15 @@
+name: Inference Router CI
+on: [push, pull_request]
+jobs:
+  test-router-and-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies & run pytest
+        run: |
+          pip install fastapi uvicorn httpx pytest pandas tabulate
+          PYTHONPATH=. pytest -v
+          python3 scripts/lab1_roofline_calculator.py
