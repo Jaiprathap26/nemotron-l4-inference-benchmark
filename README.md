@@ -91,3 +91,18 @@ vllm:time_to_first_token_seconds_sum{engine="0",model_name="nvidia/NVIDIA-Nemotr
 vllm:inter_token_latency_seconds_sum{engine="0",model_name="nvidia/NVIDIA-Nemotron-Nano-9B-v2-FP8"} 3835.7567032769475
 vllm:e2e_request_latency_seconds_count{engine="0",model_name="nvidia/NVIDIA-Nemotron-Nano-9B-v2-FP8"} 262.0
 ```
+
+## 6. Production Extension: Adaptive Thinking Router (`app/thinking_router.py`)
+
+To prevent simple queries from consuming `3.5x` extra decode tokens and locking `1,312`-token Mamba/KV cache blocks in `<think>` mode, this repository includes an async **FastAPI Complexity Router** (`app/thinking_router.py`) with a **Prometheus `PlainTextResponse` telemetry exporter** (`/metrics`) and automated CI test suite (`tests/test_router.py`):
+
+- **Fast-Path (`REASONING_OFF` -> `"/no_think"`):** Automatically routes summarization, extraction, and general queries to `/no_think`, saving ~250 output tokens (`~10.7s` of VRAM block lock time per request on L4 FP8).
+- **Deep-Path (`REASONING_ON` -> `"detailed thinking on"`):** Routes multi-step math, code synthesis, and roofline/systems queries to full chain-of-thought reasoning.
+
+```bash
+# Run the automated unit test suite locally or in CI:
+PYTHONPATH=. pytest -v
+
+# Or build and run the containerized router:
+docker build -t nemotron-thinking-router .
+docker run -p 8080:8080 -e ROUTER_DRY_RUN=true nemotron-thinking-router
